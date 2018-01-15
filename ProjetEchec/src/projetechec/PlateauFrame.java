@@ -5,6 +5,7 @@
  */
 package projetechec;
 
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,18 +21,15 @@ public class PlateauFrame extends JFrame{
     private static final ImageIcon NOIR = new ImageIcon("./src/icons/case_noire.png");
     private static final int taille = 8;
     
-    private JLabel[][] jboard;
+    private JLabel[][] board;
     private JPanel panelJeu;
+    
     
     public PlateauFrame(){
         panelJeu = new JPanel();
-        jboard = new JLabel[taille][taille];
-        
+        board = new JLabel[taille][taille];
         initBoardPanel();
     }
-    
-    
-    
     
     
     public void initBoardPanel(){
@@ -56,16 +54,19 @@ public class PlateauFrame extends JFrame{
         for(int i=0;i<taille;i++){
             for(int j=0;j<taille;j++){
                 if(couleur){
-                    jboard[i][j] = new JLabel();
-                    jboard[i][j].setIcon(BLANC);
+                    board[i][j] = new JLabel();
+                    board[i][j].setBackground(new Color(237,220,171));
+                   // board[i][j].setIcon(new ImageIcon("./src/icons/noires transparentes/fouN.png"));
                 }else{
-                    jboard[i][j] = new JLabel();
-                    jboard[i][j].setIcon(NOIR);
+                    board[i][j] = new JLabel();
+                    board[i][j].setBackground(new Color(185,136,3));
                 }
-                panelJeu.add(jboard[i][j]);
+                board[i][j].setOpaque(true);
+                panelJeu.add(board[i][j]);
                 couleur = !couleur;
             }
             couleur = !couleur;
-        }
-    }
+        } 
+    }   
+  
 }
