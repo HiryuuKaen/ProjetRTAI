@@ -24,9 +24,12 @@ public class PlateauFrame extends JFrame{
     private JLabel[][] board;
     private JPanel panelJeu;
     
+    private Joueur[] joueur;
+    
     
     public PlateauFrame(){
         panelJeu = new JPanel();
+        joueur = new Joueur[2];
         board = new JLabel[taille][taille];
         initBoardPanel();
     }
@@ -56,7 +59,6 @@ public class PlateauFrame extends JFrame{
                 if(couleur){
                     board[i][j] = new JLabel();
                     board[i][j].setBackground(new Color(237,220,171));
-                   // board[i][j].setIcon(new ImageIcon("./src/icons/noires transparentes/fouN.png"));
                 }else{
                     board[i][j] = new JLabel();
                     board[i][j].setBackground(new Color(185,136,3));

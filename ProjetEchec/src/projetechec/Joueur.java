@@ -3,14 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package piece;
+package projetechec;
 
 /**
  *
  * @author jholmieres
  */
-public abstract class piece {
-    private int positionX;
-    private int positionY;
+class Joueur {
     
+    
+    
+    public Joueur(){
+        
+    }
 }
