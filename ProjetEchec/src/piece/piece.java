@@ -9,6 +9,6 @@ package piece;
  *
  * @author jholmieres
  */
-public class piece {
+public interface piece {
     
 }

@@ -9,6 +9,6 @@ package piece;
  *
  * @author jholmieres
  */
-public class cavalier {
+public class cavalier implements piece {
     
 }

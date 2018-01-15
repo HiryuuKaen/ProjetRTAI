@@ -9,6 +9,6 @@ package piece;
  *
  * @author jholmieres
  */
-public class pion {
+public class pion implements piece {
     
 }
