@@ -5,6 +5,8 @@
  */
 package projetechec;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author jholmieres
@@ -18,7 +20,8 @@ public class ProjetEchec {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Plateau michel = new Plateau();
+                PlateauFrame michel = new PlateauFrame();
+                michel.setVisible(true);
             }
         });
     }
