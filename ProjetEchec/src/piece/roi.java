@@ -9,6 +9,6 @@ package piece;
  *
  * @author jholmieres
  */
-public class roi implements piece {
+public class roi extends piece {
     
 }

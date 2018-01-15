@@ -9,6 +9,6 @@ package piece;
  *
  * @author jholmieres
  */
-public class tour implements piece {
+public class tour extends piece {
     
 }
