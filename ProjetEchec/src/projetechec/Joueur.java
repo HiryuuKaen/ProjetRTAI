@@ -34,17 +34,17 @@ class Joueur {
             y = 6;
         }
         
-        getListePieces().add(new Tour(x,0));
-        getListePieces().add(new Cavalier(x, 1));
-        getListePieces().add(new Fou(x, 2));
-        getListePieces().add(new Roi(x, 3));
-        getListePieces().add(new Reine(x, 4));
-        getListePieces().add(new Fou(x, 5));
-        getListePieces().add(new Cavalier(x, 6));
-        getListePieces().add(new Tour(x,7));
+        getListePieces().add(new Tour(x,0,joueur));
+        getListePieces().add(new Cavalier(x, 1,joueur));
+        getListePieces().add(new Fou(x, 2,joueur));
+        getListePieces().add(new Roi(x, 3,joueur));
+        getListePieces().add(new Reine(x, 4,joueur));
+        getListePieces().add(new Fou(x, 5,joueur));
+        getListePieces().add(new Cavalier(x, 6,joueur));
+        getListePieces().add(new Tour(x,7,joueur));
         
         for(int i = 0; i < 8 ; i++){
-            getListePieces().add(new Pion(y,i));
+            getListePieces().add(new Pion(y,i,joueur));
         }
         
     }
@@ -54,6 +54,25 @@ class Joueur {
      */
     public ArrayList<Piece> getListePieces() {
         return listePieces;
+    }
+    
+    public boolean aPiece(int x, int y){
+        for(Piece unePiece : listePieces){
+            if((unePiece.getPositionX() == x) && (unePiece.getPositionY() ==y))
+                return true;
+        }
+        return false;
+    }
+    
+    public void jouer(int xE, int yE, int xS, int yS){
+        for(Piece unePiece : listePieces){
+            if((unePiece.getPositionX() == xE) && (unePiece.getPositionY() ==yE)){
+                unePiece.setPositionX(xS);
+                unePiece.setPositionY(yS);
+                
+            }
+        }
+        
     }
     
 }
