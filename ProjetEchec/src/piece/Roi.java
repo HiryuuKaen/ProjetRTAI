@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetechec;
+package piece;
 
 /**
  *
  * @author jholmieres
  */
-public class Case {
+public class Roi extends Piece {
+    
+    public Roi(int positionX, int positionY) {
+        super(positionX, positionY);
+    }
     
 }

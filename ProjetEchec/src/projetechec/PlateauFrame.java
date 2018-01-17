@@ -6,7 +6,7 @@
 package projetechec;
 
 import java.awt.Color;
-import java.awt.event.MouseListener;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,15 +22,14 @@ public class PlateauFrame extends JFrame{
     private JLabel[][] board;
     private JPanel panelJeu;
     
-    private PlateauController controler;
-    
+    private Joueur[] joueur;
     
     
     public PlateauFrame(){
         panelJeu = new JPanel();
+        joueur = new Joueur[2];
         board = new JLabel[taille][taille];
-        controler = new PlateauController();
-        controler.initController();
+        initController();
         initBoardPanel();
     }
     
@@ -40,7 +39,7 @@ public class PlateauFrame extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         panelJeu.setLayout(new java.awt.GridLayout(8, 8));
-        setSize(375,400);
+        setSize(375,390);
         
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,6 +51,7 @@ public class PlateauFrame extends JFrame{
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(panelJeu, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
         );
+        
         boolean couleur = true;
         for(int i=0;i<taille;i++){
             for(int j=0;j<taille;j++){
@@ -65,41 +65,17 @@ public class PlateauFrame extends JFrame{
                 board[i][j].setOpaque(true);
                 panelJeu.add(board[i][j]);
                 couleur = !couleur;
-                board[i][j].addMouseListener(new Case(i,j,this));
             }
             couleur = !couleur;
         } 
-        updateAffichageAll();
+        for(Piece unePiece : joueur[0].getListePieces()){
+            //unePiece.
+        }
     }   
 
-    /**
-     * @return the controller
-     */
-    public PlateauController getControler() {
-        return controler;
+    private void initController() {
+        joueur[0] = new Joueur(1);
+        joueur[1] = new Joueur(2);
     }
-    
-    public void updateAffichageAll(){
-        
-        for(int i=0;i<taille;i++){
-            for(int j=0;j<taille;j++){
-                board[i][j].setIcon(null);
-            }
-        }
-        
-        for(Piece unePiece : getControler().getJoueur0().getListePieces()){
-            board[unePiece.getPositionX()][unePiece.getPositionY()].setIcon(unePiece.getIcone());
-        }
-        for(Piece unePiece : getControler().getJoueur1().getListePieces()){
-            board[unePiece.getPositionX()][unePiece.getPositionY()].setIcon(unePiece.getIcone());
-        }
-    }
-    
-    /*
-    public void updateAffichage(int xE, int yE, int xS, int yS){
-        board[xE][yE].setIcon(null);
-        board[xS][yS].setIcon(null);
-    }*/
-
   
 }

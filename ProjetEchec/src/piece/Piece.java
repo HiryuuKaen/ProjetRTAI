@@ -3,12 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetechec;
+package piece;
 
 /**
  *
  * @author jholmieres
  */
-public class Case {
+public abstract class Piece {
+    private int positionX;
+    private int positionY;
     
+    public Piece(int positionX, int positionY){
+        this.positionX = positionX;
+        this.positionY = positionY;
+    }
 }
