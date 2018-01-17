@@ -10,15 +10,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import piece.*;
 
 /**
  *
  * @author jholmieres
  */
 public class PlateauFrame extends JFrame{
-    // Les trois images pour decorer les cases du jeu
-    private static final ImageIcon BLANC = new ImageIcon("./src/icons/case_blanche.png");
-    private static final ImageIcon NOIR = new ImageIcon("./src/icons/case_noire.png");
     private static final int taille = 8;
     
     private JLabel[][] board;
@@ -31,6 +29,7 @@ public class PlateauFrame extends JFrame{
         panelJeu = new JPanel();
         joueur = new Joueur[2];
         board = new JLabel[taille][taille];
+        initController();
         initBoardPanel();
     }
     
@@ -69,6 +68,14 @@ public class PlateauFrame extends JFrame{
             }
             couleur = !couleur;
         } 
+        for(Piece unePiece : joueur[0].getListePieces()){
+            //unePiece.
+        }
     }   
+
+    private void initController() {
+        joueur[0] = new Joueur(1);
+        joueur[1] = new Joueur(2);
+    }
   
 }
